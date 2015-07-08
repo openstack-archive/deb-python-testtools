@@ -7,6 +7,7 @@ Uploaders: Robert Collins <robertc@robertcollins.net>,
            Jelmer Vernooij <jelmer@debian.org>,
 Build-Depends: debhelper (>= 9),
                dh-python,
+               openstack-pkg-tools,
                python-all,
                python-extras,
                python-pbr (>= 0.11),
@@ -19,9 +20,15 @@ Build-Depends-Indep: python-extras,
                      python-fixtures,
                      python-mimeparse,
                      python-testresources,
+                     python-traceback2,
                      python-twisted,
+                     python-unittest2,
+                     python3-extras,
+                     python3-fixtures,
                      python3-mimeparse,
-Standards-Version: 3.9.5
+                     python3-testresources,
+                     python3-traceback2,
+Standards-Version: 3.9.6
 Vcs-Git: git://anonscm.debian.org/openstack/python-testtools.git
 Vcs-Browser: http://anonscm.debian.org/gitweb/?p=openstack/python-testtools.git
 Homepage: https://github.com/testing-cabal/testtools
@@ -29,7 +36,12 @@ XS-Testsuite: autopkgtest
 
 Package: python-testtools
 Architecture: all
-Depends: python-pkg-resources,
+Depends: python-extras,
+         python-mimeparse,
+         python-pbr (>= 0.11),
+         python-pkg-resources,
+         python-traceback2,
+         python-unittest2,
          ${misc:Depends},
          ${python:Depends},
 Provides: ${python:Provides},
@@ -48,7 +60,11 @@ Description: Extensions to the Python unittest library - Python 2.x
 
 Package: python3-testtools
 Architecture: all
-Depends: python3-pkg-resources,
+Depends: python3-extras,
+         python3-mimeparse,
+         python3-pbr (>= 0.11),
+         python3-pkg-resources,
+         python3-traceback2,
          ${misc:Depends},
          ${python3:Depends},
 Suggests: python-testtools-doc,
