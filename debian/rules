@@ -38,6 +38,6 @@ endif
 ifeq (,$(findstring nocheck,$(DEB_BUILD_OPTIONS)))
 override_dh_auto_test:
 	set -ex && for pyvers in $(PYTHONS) $(PYTHON3S); do \
-		PYTHONPATH=. PYTHON=python$$pyvers $(MAKE) -C $(CURDIR) check ; \
+		PYTHONPATH=$(CURDIR) PYTHON=python$$pyvers python$$pyvers -m testtools.run testtools.tests.test_suite ; \
 	done
 endif
