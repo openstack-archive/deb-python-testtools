@@ -1,0 +1,5 @@
+Tests: testsuite-py2
+Depends: python-testtools
+
+Tests: testsuite-py3
+Depends: python3-testtools

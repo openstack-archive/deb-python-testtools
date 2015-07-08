@@ -1,0 +1,177 @@
+python-testtools (1.8.0-1) experimental; urgency=medium
+
+  * New upstream release.
+  * Removed useless X-Python-Version: >= 2.6 and X-Python3-Version: >= 3.0.
+  * Switched to Git tag workflow instead of SVN:
+    - Added a debian/gbp.conf
+    - Fixed VCS fields in debian/control.
+    - Switched team Maintainer: field.
+  * Added dh-python as build-depends.
+  * Moved some build-depends to build-depends-indep.
+  * Ran wrap-and-sort -t -a.
+  * Dropped some Breaks+Replaces not needed since the Jessie release.
+
+ -- Thomas Goirand <zigo@debian.org>  Wed, 08 Jul 2015 11:13:16 +0200
+
+python-testtools (0.9.39-1) unstable; urgency=medium
+
+  [ Jelmer Vernooij ]
+  * Don't install empty placeholder file; fixes lintian warning.
+
+  [ Martin Pitt ]
+  * Semi-DPMT team member upload with Robert's permission.
+  * New upstream release.
+  * Suggest -doc package (Closes: #740571)
+
+ -- Martin Pitt <mpitt@debian.org>  Fri, 29 Aug 2014 10:35:16 +0200
+
+python-testtools (0.9.35-2) unstable; urgency=medium
+
+  * Re-add myself to uploaders.
+  * Add basic autopkgtest tests.
+
+ -- Jelmer Vernooij <jelmer@debian.org>  Sun, 06 Jul 2014 00:11:19 +0200
+
+python-testtools (0.9.35-1) unstable; urgency=medium
+
+  [ Jelmer Vernooij ]
+  * Remove myself from uploaders.
+
+  [ Thomas Goirand ]
+  * New upstream release.
+  * Standards-Version: is now 3.9.5.
+  * Do not remove testtools.egg-info, add extend-diff-ignore =
+    "^[^/]*[.]egg-info/" in debian/source/options.
+  * Fixes the way the sphinx doc is built, and now using a specific and
+    separate doc package to store the documentation: do not use the "make doc"
+    and call sphinx directly.
+  * Removed useless dh_auto_build override.
+  * Added python-mimeparse, python3-mimeparse, python-testresources (>= 0.2.7)
+    as build-depends.
+  * Ran wrap-and-sort.
+
+ -- Thomas Goirand <zigo@debian.org>  Mon, 24 Feb 2014 13:39:29 +0800
+
+python-testtools (0.9.32-2) unstable; urgency=low
+
+  * Added missing python-mimeparse build-depends.
+
+ -- Thomas Goirand <zigo@debian.org>  Mon, 22 Jul 2013 04:21:28 +0000
+
+python-testtools (0.9.32-1) unstable; urgency=low
+
+  * New upstream release.
+
+ -- Thomas Goirand <zigo@debian.org>  Sat, 20 Jul 2013 07:22:17 +0000
+
+python-testtools (0.9.29-3) unstable; urgency=low
+
+  [ Jakub Wilk ]
+  * Use canonical URIs for Vcs-* fields.
+
+  [ Thomas Goirand ]
+  * Uploading to unstable.
+
+ -- Thomas Goirand <zigo@debian.org>  Sat, 11 May 2013 06:23:25 +0000
+
+python-testtools (0.9.29-2) experimental; urgency=low
+
+  * Added missing build-depends: python3-setuptools, python-setuptools and
+    python-extras.
+  * Build-depends: python-fixtures must be >= 0.3.12~
+
+ -- Thomas Goirand <zigo@debian.org>  Wed, 13 Mar 2013 18:49:02 +0000
+
+python-testtools (0.9.29-1) experimental; urgency=low
+
+  * New upstream release.
+  * Rewrote debian/copyright using parsable format 1.0.
+  * Now using source format 3.0 (quilt).
+  * Standard-Version is now 3.9.4.
+  * Compat and debhelper are now 9.
+  * X-Python-Version: >= 2.6 instead of 2.5.
+  * Removes embedded version of jquery.js and underscore.js, and recommends
+    corresponding Debian packages.
+  * Sets the Debian Python Modules Team as new Maintainer:, switches the VCS
+    field to the SVN of the team, removed debian/bzr-builddeb.conf.
+  * Added minor changes in long and short descriptions (so that python 2 and 3
+    modules don't have the same descriptions).
+  * The watch file now uses tags from github.
+  * Cleans now does rm -rf build testtools.egg-info doc/_build.
+  * Added doc-base registration.
+
+ -- Thomas Goirand <zigo@debian.org>  Fri, 15 Feb 2013 12:18:38 +0000
+
+python-testtools (0.9.21-1) experimental; urgency=low
+
+  * New upstream release.
+
+ -- Jelmer Vernooij <jelmer@debian.org>  Fri, 07 Dec 2012 01:06:06 +0100
+
+python-testtools (0.9.14-2) unstable; urgency=low
+
+  * Add python3-testtools package.
+  * Migrate to debhelper 7, for easier packaging for Python3.
+
+ -- Jelmer Vernooij <jelmer@debian.org>  Mon, 12 Mar 2012 20:58:59 +0100
+
+python-testtools (0.9.14-1) unstable; urgency=low
+
+  * Add watch file.
+  * New upstream release.
+   + Now uses super to call setUp()/tearDown() for compatibility with
+     multiple inheritance and Python 2.7. LP: #771508
+  * Add myself to uploaders.
+  * Bump standards version to 3.9.3 (no changes).
+  * Add Vcs-Bzr header. Closes: #574603
+  * Migrate to dh_python2. Closes: #617036
+  * Only install for Python 2.5 and later. LP: #847827
+  * Run testsuite during package build.
+
+ -- Jelmer Vernooij <jelmer@debian.org>  Sun, 11 Mar 2012 23:25:35 +0100
+
+python-testtools (0.9.11-1) unstable; urgency=low
+
+  * New upstream release.
+  * Ship new html docs instead of the (gone) ReST MANUAL.
+
+ -- Robert Collins <robertc@robertcollins.net>  Sun, 12 Jun 2011 13:15:23 +1200
+
+python-testtools (0.9.8-1) unstable; urgency=low
+
+  * New upstream release. Closes: #606479
+
+ -- Robert Collins <robertc@robertcollins.net>  Sat, 18 Dec 2010 21:11:40 +1300
+
+python-testtools (0.9.4-1) unstable; urgency=low
+
+  * New upstream release.
+
+ -- Robert Collins <robertc@robertcollins.net>  Sun, 04 Jul 2010 20:28:41 +1000
+
+python-testtools (0.9.2-1) unstable; urgency=low
+
+  * New upstream release.
+  * Include the manual in the package.
+
+ -- Robert Collins <robertc@robertcollins.net>  Wed, 16 Dec 2009 10:10:03 +1100
+
+python-testtools (0.9.0-1) unstable; urgency=low
+
+  * New upstream release.
+
+ -- Robert Collins <robertc@robertcollins.net>  Sun, 22 Nov 2009 14:31:14 +1100
+
+python-testtools (0.1~r16-1) unstable; urgency=low
+
+  * Add to Debian. Closes: #547479
+  * Change Maintainer to me.
+
+ -- Robert Collins <robertc@robertcollins.net>  Sun, 20 Sep 2009 16:45:45 +1000
+
+python-testtools (0.1~r16-0ubuntu1) karmic; urgency=low
+
+  * Initial release (LP: #359308)
+  * This is r16 from lp:~statik/testtools/add-manifest
+
+ -- Elliot Murphy (personal) <elliot.murphy@gmail.com>  Wed, 08 Apr 2009 15:07:49 -0400

@@ -1,0 +1,39 @@
+=== removed file 'testtools/_compat2x.py'
+--- old/testtools/_compat2x.py	2011-07-26 23:08:51 +0000
++++ new/testtools/_compat2x.py	1970-01-01 00:00:00 +0000
+@@ -1,17 +0,0 @@
+-# Copyright (c) 2011 testtools developers. See LICENSE for details.
+-
+-"""Compatibility helpers that are valid syntax in Python 2.x.
+-
+-Only add things here if they *only* work in Python 2.x or are Python 2
+-alternatives to things that *only* work in Python 3.x.
+-"""
+-
+-__all__ = [
+-    'reraise',
+-    ]
+-
+-
+-def reraise(exc_class, exc_obj, exc_tb, _marker=object()):
+-    """Re-raise an exception received from sys.exc_info() or similar."""
+-    raise exc_class, exc_obj, exc_tb
+-
+
+=== modified file 'testtools/compat.py'
+--- old/testtools/compat.py	2011-12-05 15:21:33 +0000
++++ new/testtools/compat.py	2012-03-12 20:13:03 +0000
+@@ -32,11 +32,7 @@
+ BytesIO = try_imports(['StringIO.StringIO', 'io.BytesIO'])
+ StringIO = try_imports(['StringIO.StringIO', 'io.StringIO'])
+ 
+-try:
+-    from testtools import _compat2x as _compat
+-    _compat
+-except SyntaxError:
+-    from testtools import _compat3x as _compat
++from testtools import _compat3x as _compat
+ 
+ reraise = _compat.reraise
+ 
+

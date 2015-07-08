@@ -1,0 +1,2 @@
+version=3
+https://github.com/testing-cabal/testtools/tags .*/testtools-(\d[\d\.]+)\.tar\.gz

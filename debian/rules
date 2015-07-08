@@ -1,0 +1,35 @@
+#!/usr/bin/make -f
+
+PYTHONS:=$(shell pyversions -vr)
+PYTHON3S:=$(shell py3versions -vr)
+
+%:
+	dh $@ --buildsystem=python_distutils --with python2,python3,sphinxdoc
+
+override_dh_auto_install:
+	set -e && for pyvers in $(PYTHONS); do \
+		python$$pyvers setup.py install --install-layout=deb \
+			--root $(CURDIR)/debian/python-testtools; \
+	done
+	set -e && for pyvers in $(PYTHON3S); do \
+		python$$pyvers setup.py install --install-layout=deb \
+			--root $(CURDIR)/debian/python3-testtools; \
+	done
+	# Remove 2x compat file as it causes errors during byte compilation on installation.
+	echo 'raise SyntaxError' > \
+		$(CURDIR)/debian/python3-testtools/usr/lib/python3/dist-packages/testtools/_compat2x.py
+
+override_dh_sphinxdoc:
+ifeq (,$(findstring nodocs, $(DEB_BUILD_OPTIONS)))
+	sphinx-build -b html doc $(CURDIR)/debian/python-testtools-doc/usr/share/doc/python-testtools-doc/html
+	dh_sphinxdoc -O--buildsystem=python_distutils
+	# Remove empty git placeholder files that make lintian unhappy.
+	rm -f $(CURDIR)/debian/python-testtools-doc/usr/share/doc/python-testtools-doc/html/_static/placeholder.txt
+endif
+
+ifeq (,$(findstring nocheck,$(DEB_BUILD_OPTIONS)))
+override_dh_auto_test:
+	set -ex && for pyvers in $(PYTHONS) $(PYTHON3S); do \
+		PYTHONPATH=. PYTHON=python$$pyvers $(MAKE) -C $(CURDIR) check ; \
+	done
+endif
