@@ -28,6 +28,7 @@ Build-Depends-Indep: python-extras,
                      python3-mimeparse,
                      python3-testresources,
                      python3-traceback2,
+                     python3-unittest2 (>= 1.1.0),
 Standards-Version: 3.9.6
 Vcs-Git: git://anonscm.debian.org/openstack/python-testtools.git
 Vcs-Browser: http://anonscm.debian.org/gitweb/?p=openstack/python-testtools.git
@@ -65,6 +66,7 @@ Depends: python3-extras,
          python3-pbr (>= 0.11),
          python3-pkg-resources,
          python3-traceback2,
+         python3-unittest2 (>= 1.1.0),
          ${misc:Depends},
          ${python3:Depends},
 Suggests: python-testtools-doc,
