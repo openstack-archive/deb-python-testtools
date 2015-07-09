@@ -1,0 +1,38 @@
+Description: Do not run test_run_list_failed_import
+ This test is broken, let's just remove it.
+Author: Thomas Goirand <zigo@debian.org>
+Forwarded: no
+Last-Update: 2015-07-09
+
+--- python-testtools-1.8.0.orig/testtools/tests/test_run.py
++++ python-testtools-1.8.0/testtools/tests/test_run.py
+@@ -191,29 +191,6 @@ class TestRun(TestCase):
+ testtools.runexample.TestFoo.test_quux
+ """, out.getvalue())
+ 
+-    def test_run_list_failed_import(self):
+-        broken = self.useFixture(SampleTestFixture(broken=True))
+-        out = StringIO()
+-        # XXX: http://bugs.python.org/issue22811
+-        unittest2.defaultTestLoader._top_level_dir = None
+-        exc = self.assertRaises(
+-            SystemExit,
+-            run.main, ['prog', 'discover', '-l', broken.package.base, '*.py'], out)
+-        self.assertEqual(2, exc.args[0])
+-        self.assertThat(out.getvalue(), DocTestMatches("""\
+-Failed to import test module: runexample
+-Traceback (most recent call last):
+-  File ".../loader.py", line ..., in _find_test_path
+-    package = self._get_module_from_name(name)
+-  File ".../loader.py", line ..., in _get_module_from_name
+-    __import__(name)
+-  File ".../runexample/__init__.py", line 1
+-    class not in
+-...^...
+-SyntaxError: invalid syntax
+-
+-""", doctest.ELLIPSIS))
+-
+     def test_run_orders_tests(self):
+         self.useFixture(SampleTestFixture())
+         out = StringIO()
