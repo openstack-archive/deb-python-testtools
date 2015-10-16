@@ -1,6 +1,7 @@
 python-testtools (1.8.0-3) unstable; urgency=medium
 
   * Uploading to unstable.
+  * Do not run unit tests of testtools, as it is currently broken in Debian.
 
  -- Thomas Goirand <zigo@debian.org>  Fri, 16 Oct 2015 11:47:22 +0000
 

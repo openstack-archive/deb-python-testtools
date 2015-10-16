@@ -35,9 +35,9 @@ ifeq (,$(findstring nodocs, $(DEB_BUILD_OPTIONS)))
 	rm -f $(CURDIR)/debian/python-testtools-doc/usr/share/doc/python-testtools-doc/html/_static/placeholder.txt
 endif
 
-ifeq (,$(findstring nocheck,$(DEB_BUILD_OPTIONS)))
-override_dh_auto_test:
-	set -ex && for pyvers in $(PYTHONS) $(PYTHON3S); do \
-		PYTHONPATH=$(CURDIR) PYTHON=python$$pyvers python$$pyvers -m testtools.run testtools.tests.test_suite ; \
-	done
-endif
+#ifeq (,$(findstring nocheck,$(DEB_BUILD_OPTIONS)))
+#override_dh_auto_test:
+#	set -ex && for pyvers in $(PYTHONS) $(PYTHON3S); do \
+#		PYTHONPATH=$(CURDIR) PYTHON=python$$pyvers python$$pyvers -m testtools.run testtools.tests.test_suite ; \
+#	done
+#endif
