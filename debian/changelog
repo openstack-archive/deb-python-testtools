@@ -1,6 +1,7 @@
 python-testtools (1.8.0-4) UNRELEASED; urgency=medium
 
   * Fixed VCS URLs (https).
+  * d/rules: Changed UPSTREAM_GIT protocol to https
 
  -- Ondřej Nový <novy@ondrej.org>  Sun, 28 Feb 2016 15:52:05 +0100
 
