@@ -1,4 +1,5 @@
 [gerrit]
-host=review.testing-cabal.org
+host=review.openstack.org
 port=29418
-project=testing-cabal/testtools.git
+project=openstack/deb-python-testtools.git
+defaultbranch=debian/newton
