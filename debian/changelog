@@ -1,3 +1,9 @@
+python-testtools (1.8.0-5) UNRELEASED; urgency=medium
+
+  * Bumped debhelper compat version to 10
+
+ -- Ondřej Nový <onovy@debian.org>  Thu, 24 Nov 2016 00:12:04 +0100
+
 python-testtools (1.8.0-4) unstable; urgency=medium
 
   * Fixed VCS URLs (https).
