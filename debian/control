@@ -5,6 +5,7 @@ Maintainer: PKG OpenStack <openstack-devel@lists.alioth.debian.org>
 Uploaders: Robert Collins <robertc@robertcollins.net>,
            Thomas Goirand <zigo@debian.org>,
            Jelmer Vernooij <jelmer@debian.org>,
+           Free Ekanayaka <freee@debian.org>,
 Build-Depends: debhelper (>= 10),
                dh-python,
                openstack-pkg-tools,
