@@ -1,0 +1,21 @@
+Description: Fix a broken import from twisted.trial
+ The code was importing from a private Twisted module, which has changed
+ in the latest Twisted releases. This bug has been fixed upstream in
+ testtools.
+Author: Free Ekanayaka <freee@debian.org>
+Last-Update: 2016-12-21
+
+--- python-testtools-1.8.0.orig/testtools/deferredruntest.py
++++ python-testtools-1.8.0/testtools/deferredruntest.py
+@@ -28,7 +28,10 @@
+ 
+ from twisted.internet import defer
+ from twisted.python import log
+-from twisted.trial.unittest import _LogObserver
++try:
++    from twisted.trial.unittest import _LogObserver
++except ImportError:
++    from twisted.trial._synctest import _LogObserver
+ 
+ 
+ class _DeferredRunTest(RunTest):

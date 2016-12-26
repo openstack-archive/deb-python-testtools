@@ -1,6 +1,10 @@
 python-testtools (1.8.0-5) UNRELEASED; urgency=medium
 
+  [ Ondřej Nový ]
   * Bumped debhelper compat version to 10
+
+  [ Free Ekanayaka ]
+  * Fix broken import from twisted.trial.unittest (Closes: #848888)
 
  -- Ondřej Nový <onovy@debian.org>  Thu, 24 Nov 2016 00:12:04 +0100
 
