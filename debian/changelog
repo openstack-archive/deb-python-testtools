@@ -1,4 +1,4 @@
-python-testtools (1.8.0-5) UNRELEASED; urgency=medium
+python-testtools (1.8.0-5) unstable; urgency=medium
 
   [ Ondřej Nový ]
   * Bumped debhelper compat version to 10
@@ -6,7 +6,7 @@ python-testtools (1.8.0-5) UNRELEASED; urgency=medium
   [ Free Ekanayaka ]
   * Fix broken import from twisted.trial.unittest (Closes: #848888)
 
- -- Ondřej Nový <onovy@debian.org>  Thu, 24 Nov 2016 00:12:04 +0100
+ -- Free Ekanayaka <freee@debian.org>  Tue, 27 Dec 2016 11:38:33 +0000
 
 python-testtools (1.8.0-4) unstable; urgency=medium
 
